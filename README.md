@@ -1,19 +1,22 @@
 # Asla Farveen — Personal Portfolio Website
 
-A minimal, editorial, and responsive single-page portfolio landing page created for **Asla Farveen**, Graphic Designer & Digital Marketing Learner based in Othukkungal, Malappuram, Kerala, India.
+A minimal, editorial, and responsive single-page portfolio landing page created for **Asla Farveen**, Graphic Designer & Digital Marketing Professional based in Othukkungal, Malappuram, Kerala, India.
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-├── index.html            # Semantic HTML5 single-page structure
+├── index.html            # Semantic HTML5 single-page structure with SEO & Schema markup
 ├── style.css             # Vanilla CSS design system (Light/Dark themes, responsive, animations)
-├── script.js             # Interactions (theme switcher, smooth scroll, mobile menu, modal, toast)
+├── script.js             # Interactions (theme switcher, smooth scroll, mobile menu, toast)
+├── robots.txt            # Search engine crawler configuration
+├── sitemap.xml           # XML Sitemap placeholder for SEO indexing
 ├── assets/
+│   ├── asla-farveen.jpg  # Profile portrait photo
 │   ├── favicon.svg       # Custom AF monogram vector favicon
-│   └── hero-graphic.svg  # Minimalist editorial geometric design specimen graphic
-└── README.md             # This guide
+│   └── hero-graphic.svg  # Geometric design graphic
+└── README.md             # Project documentation
 ```
 
 ---

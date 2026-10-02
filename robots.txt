@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asla-farveen.vercel.app/sitemap.xml
