@@ -1933,6 +1933,132 @@ button, input, textarea {
 }
 
 /* --------------------------------------------------------------------------
+   Floating WhatsApp Button (Bottom Right)
+   -------------------------------------------------------------------------- */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: clamp(1.25rem, 3vw, 2rem);
+  right: clamp(1.25rem, 3vw, 2rem);
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 990;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.whatsapp-float-btn:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+}
+
+.whatsapp-float-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.whatsapp-float-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.whatsapp-float-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: #FFFFFF;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Subtle Glowing Pulse Effect */
+.whatsapp-float-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--radius-full);
+  background: #25D366;
+  opacity: 0.6;
+  z-index: 1;
+  animation: whatsappPulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Tooltip Badge on Hover */
+.whatsapp-float-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+}
+
+.whatsapp-float-btn:hover .whatsapp-float-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Accessible Focus Ring */
+.whatsapp-float-btn:focus-visible {
+  outline: 3px solid #25D366;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float-tooltip {
+    display: none;
+  }
+  .whatsapp-float-btn {
+    width: 54px;
+    height: 54px;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  .whatsapp-float-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Accessibility: Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1948,7 +2074,9 @@ button, input, textarea {
     transform: none !important;
   }
 
-  .pulse-indicator {
-    animation: none;
+  .pulse-indicator,
+  .whatsapp-float-pulse {
+    animation: none !important;
+    display: none !important;
   }
 }
